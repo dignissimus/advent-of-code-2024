@@ -17,7 +17,7 @@ program main
     end if
     open(unit=0, file=file_name, iostat=iostat)
     do while (iostat == 0)
-        read (0, "(2(I5))", iostat=iostat) ak, bk
+        read (0, "(2(I8))", iostat=iostat) ak, bk
         if (iostat /= 0) then
             exit
         end if
@@ -29,7 +29,7 @@ program main
         bi = min(bi, bk)
     end do
     ! Part 2
-    print *, DOT_PRODUCT([(i, i = 1, 100000)] * A, B)
+    print *, dot_product([(i, i = 1, 100000)], A * B)
     do while (ai <= ae)
         av = A(ai)
         do while (av /= 0)
